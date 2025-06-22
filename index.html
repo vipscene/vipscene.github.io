@@ -39,6 +39,79 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px; /* Space between rows */
+    }
+    .row {
+        display: flex;
+        align-items: flex-start; /* Align items to the top of the row */
+        gap: 30px; /* Space between columns */
+    }
+    .column {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center content within each column */
+        text-align: center;
+    }
+    .image-input {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Align text and image to the left within this column */
+        gap: 10px; /* Space between text and image */
+    }
+    .image-input .text-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .image-input .text-label {
+        writing-mode: vertical-lr; /* For vertical "Image Input" text */
+        text-orientation: mixed;
+        transform: rotate(180deg); /* Rotate to read from bottom up */
+        font-weight: bold;
+        font-size: 1.1em;
+        margin-right: 10px; /* Space between "Image Input" text and the rest */
+    }
+    .image-input .complementary-label {
+        writing-mode: vertical-lr;
+        text-orientation: mixed;
+        transform: rotate(180deg);
+        font-size: 0.9em;
+        color: #555;
+        margin-right: 5px;
+    }
+    .image-wrapper {
+        border: 1px solid #ccc; /* Add a border to the image as seen in the example */
+        padding: 5px;
+    }
+    img, video {
+        max-width: 100%;
+        height: auto;
+        display: block; /* Remove extra space below images */
+    }
+    .description-text {
+        margin-top: 10px;
+        text-align: left;
+        padding: 0 10px; /* Add some padding to the text */
+        max-width: 250px; /* Adjust as needed for your content */
+    }
+    .small-video {
+        width: auto;
+        height: 260px;
+    }
+    .large-image {
+        width: auto;
+        max-width: 100%;
+        height: 250px;
+    }
+  </style>
 </head>
 <body>
 
@@ -335,10 +408,84 @@
     <div class="columns is-centered has-text-centered">
       <div class="column">
         <h2 class="title is-3">Qualitative Results</h2>
-
-        <img src="./static/images/qual.png"
-                  class="teaser-fig"
-                  alt="teaser-fig."/>
+        <div class="row">
+          <div class="column">
+              <div class="image-wrapper">
+                  <img src="./static/images/1-1.png" alt="Living Room Input">
+              </div>
+          </div>
+          <div class="column">
+              <div class="video-wrapper">
+                  <video id="first-video" class="small-video" controls autoplay loop muted src="./static/images/1-2.mp4">
+                      Your browser does not support the video tag.
+                  </video>
+              </div>
+              <div class="description-text">
+                  <p>Video</p>
+              </div>
+          </div>
+          <div class="column">
+              <div class="image-wrapper">
+                  <img class="large-image" src="./static/images/1-3.png" alt="Living Room 3D Scene">
+              </div>
+              <div class="description-text">
+                  <p>3D Scene</p>
+              </div>
+          </div>
+      </div>
+  
+      <div class="row">
+          <div class="column">
+              <div class="image-wrapper">
+                  <img src="./static/images/2-1.png" alt="Bedroom Input">
+              </div>
+          </div>
+          <div class="column">
+              <div class="video-wrapper">
+                  <video class="small-video" controls autoplay loop muted src="./static/images/2-2.mp4">
+                      Your browser does not support the video tag.
+                  </video>
+              </div>
+              <div class="description-text">
+                  <p>Video</p>
+              </div>
+          </div>
+          <div class="column">
+              <div class="image-wrapper">
+                  <img class="large-image" src="./static/images/2-3.png" alt="Bedroom 3D Scene">
+              </div>
+              <div class="description-text">
+                  <p>3D Scene</p>
+              </div>
+          </div>
+      </div>
+  
+      <div class="row">
+          <div class="column">
+              <div class="image-wrapper">
+                  <img src="./static/images/3-1.png" alt="Kitchen Input">
+              </div>
+          </div>
+          <div class="column">
+              <div class="video-wrapper">
+                  <video class="small-video" controls autoplay loop muted src="./static/images/3-2.mp4">
+                      Your browser does not support the video tag.
+                  </video>
+              </div>
+              <div class="description-text">
+                  <p>Video</p>
+              </div>
+          </div>
+          <div class="column">
+              <div class="image-wrapper">
+                  <img class="large-image" src="./static/images/3-3.png" alt="Kitchen 3D Scene">
+              </div>
+              <div class="description-text">
+                  <p>3D Scene</p>
+              </div>
+          </div>
+      </div>
+  
         <div class="content has-text-justified">
           <!-- <p>
           </p> -->
@@ -366,10 +513,10 @@ white sofa near the observer in the living room or the side window in the bedroo
         </p>
         <br>
         <h3 class="title is-4">Multimodal Prompting</h3>
-        <img src="./static/images/multimodal.png"
+        <!-- <img src="./static/images/multimodal.png"
           class="teaser-fig"
           alt="teaser-fig."
-          style="max-width: 70%; height: auto;"/>
+          style="max-width: 70%; height: auto;"/> -->
         <div class="content has-text-justified">
           <p class="has-text-centered">
             The image defines the initial view, while text enables plausible extrapolation, enhancing flexibility and realism.
@@ -425,6 +572,20 @@ white sofa near the observer in the living room or the side window in the bedroo
     </div>
   </div>
 </footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var firstVideo = document.getElementById('first-video');
+    if (firstVideo) {
+      firstVideo.playbackRate = 1.75;
+    }
+    document.querySelectorAll('video').forEach(function(video) {
+      if (video !== firstVideo) {
+        video.playbackRate = 1.5;
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
